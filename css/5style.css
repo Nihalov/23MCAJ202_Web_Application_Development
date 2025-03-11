@@ -1,15 +1,26 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #fff;
     margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
 }
+.header{
+    background-color: #225304;
+    padding: 5px;
+    padding-left: 20px;
+    
+}
+
+.form-cont{
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+}
+
 
 .form-container {
-    background-color: #fff;
+    background-color: #f0f8ed;
     padding: 20px;
     border-radius: 8px;
     box-shadow:  0px 1px 20px rgb(159, 159, 159);
@@ -20,11 +31,13 @@ body {
 h2 {
     text-align: center;
     margin-bottom: 20px;
-    color: #333;
+    color: #225304;
 }
+
 
 .form-group {
     margin-bottom: 15px;
+    color: #225304;
 }
 
 input, textarea {
@@ -38,7 +51,7 @@ input, textarea {
 button {
     width: 100%;
     padding: 10px;
-    background-color: #007BFF;
+    background-color: #6aed18;
     color: #fff;
     border: none;
     border-radius: 4px;
