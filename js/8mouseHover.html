@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hover to Change Content</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        #content {
+            text-align: center;
+            cursor: pointer;
+        }
+        img {
+            width: 300px;
+            height: 200px;
+            border: 2px solid #000;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <h2 id="text">Hover over me!</h2>
+        <img id="image" src="before2.jpg" alt="Original Image">
+    </div>
+
+    <script>
+
+        const content = document.getElementById('content');
+        content.addEventListener('mouseover', () => {
+            document.getElementById('text').innerText = 'New Text!';
+            document.getElementById('image').src = 'after.jpg';
+        });
+        content.addEventListener('mouseout', () => {
+            document.getElementById('text').innerText = 'Hover over me!';
+            document.getElementById('image').src = 'before2.jpg';
+        });
+
+    </script>
+</body>
+</html>

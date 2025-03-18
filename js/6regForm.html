@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Registration Page</title>
+    <style>
+        body {
+        font-family: Arial, sans-serif;
+        background-color: #f3f4f6; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0; 
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 12px; 
+            box-shadow: 0px 1px 20px grey;    
+            width: 400px;
+        }
+
+        h2 {
+            text-align: center; 
+            margin-bottom: 20px; 
+        }
+
+        input { 
+            width: 95%; 
+            padding: 8px; 
+            margin-top: 15px; 
+            border: 1px solid #ccc; 
+            border-radius: 5px; 
+        }
+
+        button { 
+            width: 100%; 
+            padding: 10px;
+            background-color: #d5db34; 
+            border: none; 
+            border-radius: 5px; 
+            color: rgb(84, 92, 16); 
+            font-size: medium;
+            font-weight: bold;
+            cursor: pointer; 
+            margin-top: 15px; 
+
+        }
+
+        button:hover { 
+            opacity: 75%; 
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+
+    </style>
+
+</head>
+
+<body>
+<div class="container">
+    <h2>Register</h2>
+    <form onsubmit="validate()">
+        <input id="uname" type="text" placeholder="Username">
+        <div id="unameError" class="error"></div>
+
+        <input id="email" type="text" placeholder="Email">
+        <div id="emailError" class="error"></div>
+
+        <input id="psswd" type="password" placeholder="Password">
+        
+        <input id="psswd2" type="password" placeholder="Confirm Password">
+        <div id="passwordError" class="error"></div>
+
+        <button type="submit" >Register</button>
+    </form>
+</div>
+
+<script>
+    function validate(){
+        event.preventDefault();  // Prevent form submission
+
+        isValid=true;
+        const uname = document.getElementById('uname').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const psswd = document.getElementById('psswd').value.trim();
+        const psswd2 = document.getElementById('psswd2').value.trim();
+
+        document.getElementById('unameError').textContent = '';
+        document.getElementById('emailError').textContent = '';
+        document.getElementById('passwordError').textContent = '';
+        
+        if(uname==''){
+            document.getElementById('unameError').innerHTML="Username is required";
+            isValid = false;
+        }
+
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if(email==''){
+            document.getElementById('emailError').innerHTML="Email is required";
+            isValid = false;
+        }
+        else if (!emailPattern.test(email)) {
+            document.getElementById('emailError').textContent = 'Invalid email format';
+            isValid = false;
+        }
+        
+        
+        if(psswd!=psswd2){
+            document.getElementById('passwordError').textContent = "Both password are not same";
+            isValid = false;
+        }
+        if (psswd.length < 6) {
+            document.getElementById('passwordError').textContent = 'Password must be at least 6 characters';
+            isValid = false;
+        }
+        if (isValid) {
+                alert('Registration successful!');
+            }
+    }
+    
+</script>
+</body>
+</html>
